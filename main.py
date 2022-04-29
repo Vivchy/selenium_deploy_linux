@@ -3,7 +3,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
-s = Service(r'driver/chromedriver.exe')
+from source import path
+
+s = Service(path) #путь до веб драйвера
 
 def main():
     """
