@@ -1,6 +1,9 @@
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.actions.mouse_button import MouseButton
 import time
 
 from source import path
@@ -20,7 +23,7 @@ def main():
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option('useAutomationExtension', False)
     options.add_argument("--window-size=1550,1000")
-    options.headless = True
+    # options.headless = True
 
     driver = webdriver.Chrome(
         service=s,
@@ -28,14 +31,10 @@ def main():
     )
 
     try:
-        driver.get("https://www.youtube.com/")
-        driver.implicitly_wait(10)
-        search = driver.find_elements(By.XPATH, '//ytd-rich-item-renderer[@class = "style-scope ytd-rich-grid-row"]')
-        time.sleep(2)
-        for item in search:
-            title = item.find_element(By.XPATH, './/a[@id = "video-title-link"]').text
-            print(title)
-        time.sleep(5)
+        driver.get('https://market.yandex.ru/product--krossovki-reebok/1696969396?glfilter=14474402%3A14583828_101739014259&glfilter=14871214%3A27649830_101739014259&cpc=yjq_ZgI1NJOtvK96lZzW4Uk3ejvnYuMIXjGlsVXKDehwsJ6CkKa3pxlPaRsZl37_sULP2wyd1S5Ll00O7HTYOJYGxPDQ35-BNq2ukl0Nz5kw7UOGU_vWJJpzDVZiKGhx8rT2BIacNce9k8thtFuuD6wIZv0gyj7Y8njWrXoJ1hmz1Mt9q_ABx5CObYQFZQbX&sku=101739014259&offerid=gdsG2OIFbb9pxHUuX3oB_g&cpa=1')
+
+
+        time.sleep(40)
     except Exception as ex:
         print(ex)
 
