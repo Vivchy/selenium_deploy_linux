@@ -23,7 +23,10 @@ def main():
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option('useAutomationExtension', False)
     options.add_argument("--window-size=1550,1000")
+
     # options.headless = True
+    options.add_argument("--no-sandbox")
+
 
     driver = webdriver.Chrome(
         service=s,
